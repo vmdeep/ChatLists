@@ -23,7 +23,10 @@ public class Message {
 	};
 
 	public long getMessageTimeStamp() {
-		java.util.Date timestamp = new java.util.Date();
+		
+		//return (int) (System.currentTimeMillis() / 1000L); TIMESTAMP
+		
+		java.util.Date timestamp= new java.util.Date();
 		return timestamp.getTime();
 	};
 
