@@ -12,7 +12,7 @@ public class MessageList {
 
 	private ConcurrentLinkedDeque<Message> messages=new ConcurrentLinkedDeque<Message>();
 	
-	{
+	public MessageList() {
 		for(int i=0;i<capacity;i++){
 			messages.add(null);
 		}
