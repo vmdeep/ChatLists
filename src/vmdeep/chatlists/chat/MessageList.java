@@ -1,6 +1,7 @@
 package vmdeep.chatlists.chat;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -35,9 +36,21 @@ public class MessageList {
 		return messages.getLast();
 		
 	}
-//	public Message[] getAllMessage(){
-//		return messages.toArray
-//	}
+	
+	
+	public Message[] getAllMessages(long timestamp){
+		ArrayList<Message> result = new ArrayList<Message>();
+		Iterator<Message> iter = messages.descendingIterator();
+		while(iter.hasNext()){
+			Message m = iter.next();
+			if(m != null && m.timestamp > timestamp){
+				result.add(m);
+			}else{
+				break;
+			}
+		} 
+		return (Message[]) result.toArray();
+	}
 	
 
 
