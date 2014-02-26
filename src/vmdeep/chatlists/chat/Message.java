@@ -20,7 +20,7 @@ public class Message {
 		return MessageText;
 	};	
 	public long getMessageTimeStamp() {
-		java.util.Date timestamp= new java.util.Date();	
+		java.util.Date timestamp= new java.util.Date();
 		return timestamp.getTime();
 	};	
 
