@@ -50,14 +50,6 @@ public class MessageList {
 			}
 		} 
 		return (Message[]) result.toArray();
-	}
-	
-
-
-
-
-	public static void main(String[] args) {
-
-	}
+	}	
 
 }
