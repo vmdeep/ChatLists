@@ -1,6 +1,6 @@
 package vmdeep.chatlists.chat;
 
-public class ChatMember {
+public class Member {
 	String nickName;
 	String fullName;
 	String email;
