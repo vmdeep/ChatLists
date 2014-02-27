@@ -2,26 +2,23 @@ package vmdeep.chatlists.chat;
 
 public class Message {
 
-	private String MemberName;
 	private String MessageText;
 	private long timestamp;
 	private Member Member;   
 
-    public Message(Member objMember) //-------  Constructor
+    public Member getMember() {
+		return Member;
+	}
+
+	public void setMember(Member member) {
+		Member = member;
+	}
+
+	public Message() //-------  Constructor
     {    
-    	Member = objMember;
     	timestamp =	(int) (System.currentTimeMillis() / 1000L);
     };
         
-	public int setMemberName(String str1) {
-		MemberName = str1;
-		return 1;
-	};
-
-	public String getMemberName() {
-		return MemberName;
-	};
-
 	public int setMessageText(String str1) {
 		MessageText = str1;
 		return 1;
