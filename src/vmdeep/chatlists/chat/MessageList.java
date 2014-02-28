@@ -28,7 +28,7 @@ public class MessageList {
 		Iterator<Message> iter = messages.descendingIterator();
 		while(iter.hasNext()){
 			Message m = iter.next();
-			if(m != null && m.timestamp > timestamp){
+			if(m != null && m.getMessageTimeStamp() > timestamp){
 				result.add(m);
 			}else{
 				break;
