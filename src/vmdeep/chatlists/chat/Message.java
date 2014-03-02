@@ -3,7 +3,7 @@ package vmdeep.chatlists.chat;
 public class Message {
 
 	private String text;
-	private long timestamp;
+	public final long timestamp;
 	private Member member;
 
 	public Message() // ------- Constructor
@@ -48,11 +48,11 @@ public class Message {
 	public static void main(String[] args) {
 
 		// TODO Auto-generated method stub*/
-		// Member MyMember = new Member();
-		// MyMember.fullName="Рябов Дмитрий Викторович";
-		// MyMember.email="rdv.pvt@gmail.com";
-		// MyMember.nickName="Димон";
-		// Message MyMessage=new Message(MyMember,"Hello World!!!");
+		 Member MyMember = new Member();
+		 MyMember.fullName="Рябов Дмитрий Викторович";
+		 MyMember.email="rdv.pvt@gmail.com";
+		 MyMember.nickName="Димон";
+		 Message MyMessage=new Message(MyMember,"Hello World!!!");
 		//if(MyMessage.IsNew(System.currentTimeMillis() / 1000L))
 		//{
 		// System.out.println("Новое сообщение");
@@ -60,6 +60,6 @@ public class Message {
 		// else System.out.println("Новое сообщение"); 
 		 // System.out.println(MyMessage.Member.fullName);
 		// System.out.println(MyMessage.timestamp);
-		// System.out.println(MyMessage.getMessageTimeStamp());
+		 System.out.println(MyMessage.getMessageTimeStamp());
 	};
 }
