@@ -19,9 +19,12 @@ public class MessageTest {
 	String testMessage = "Тестовое сообщение!";
 	String testFullname = "Вася Пупкин";
 	String testNickName = "}|{O|nOPA3PbIBATEJIb";
+
 //	MyMember.email=testEmail;
 //	MyMember.fullName=testFullname;
 //	MyMember.nickName=testNickName;
+	
+		
 	
 		
 	/**
