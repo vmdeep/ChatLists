@@ -3,13 +3,8 @@ package vmdeep.chatlists.chat;
 public class Message {
 
 	private String text;
-	public final long timestamp;
+	private long timestamp;
 	private Member member;
-
-	public Message() // ------- Constructor
-	{
-		timestamp = (System.currentTimeMillis() / 1000L);
-	};
 
 	public Message(Member member, String text) // ------- Constructor
 	{
@@ -38,6 +33,13 @@ public class Message {
 
 		return timestamp;
 	};
+	
+	public void setMessageTimeStamp() {
+		
+	timestamp = (System.currentTimeMillis() / 1000L);
+	
+	};
+	
 
 	public boolean IsNew(long timestamp) {
 
