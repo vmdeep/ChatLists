@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * <h1>Список пользователей onLine</h1>
  * 
- * @author Evgen
+ * @author Корчак Евгений
  * @version 0.000001
 */
 
