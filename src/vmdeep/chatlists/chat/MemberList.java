@@ -127,7 +127,7 @@ public class MemberList {
 					return m.lastMessage; 
 			}
 		}
-		return -1;		
+		return -1L;		
 	}
 	
 	public void printConsoleMembers() {
