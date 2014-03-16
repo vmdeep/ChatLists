@@ -152,53 +152,5 @@ public class MemberList {
 	}
 	
 	
-	/*
-	public static void main(String[] args) {
-		MemberList m=new MemberList("MemberList");
-		System.out.println("id: " + m.id());
-		
-		Member n1=new Member();
-		n1.nickName="n1";
-		n1.lastMessage = 100;
-
-		Member n2=new Member();
-		n2.nickName="n2";
-		n2.lastMessage = 200;
-		
-		Member n3=new Member();
-		n3.nickName="n3";
-		n3.lastMessage = 300;
-		
-		Member n4=new Member();
-		n4.nickName="n4";
-		n4.lastMessage = 400;
-		
-		m.put(null, n1);
-		m.put("n1", n1);
-		m.put("n1", n4); //!!!
-		m.put("n10", null); //!!!
-		m.put("n2", n2);
-		m.put("n3", n3);
-		m.put("n4", n4);
-		
-		//m.printConsoleMembers();
-		
-		m.setLastMessage("n33", 1000);
-		
-		m.remove(null);
-		m.remove("n1");
-		//m.printConsoleMembers();
-		
-		m.isNickName(null);
-		m.getLastMessage(null);
-		
-		m.setLastMessage(null, 1);
-		
-		//System.out.println("n33 lastMessage: " + m.getLastMessage("n33"));
-		//System.out.println("n2 lastMessage: " + m.getLastMessage(null));
-
-		m.printConsoleMembers(m.getMembers());
-		
-	};
-	*/
+	/* public static void main(String[] args) {	}; */
 }
