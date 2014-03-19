@@ -21,6 +21,10 @@ public class MemberList {
 		members = new ConcurrentHashMap<String, Member>();
 	}
 	
+	public MemberList() {
+		this("MemberList");
+	}
+	
 	public String id() {
 		return id;
 	}
@@ -34,24 +38,31 @@ public class MemberList {
 	  *
 	  * @param nickName Ник пользователя (ключ в таблице)
 	  * @param member Данные о пользователе
-	  * @return null, если пользователь уже есть в таблице или ошибка добавления, Member, если удачно
+	  * @return null, если пользователь уже есть в таблице или ошибка, Member, если удачно
 	  */
 	public Member put(String nickName, Member member) {
-		if ( (nickName == null) || (member == null) || (members.containsKey(nickName) == true) )
-			return null;
-		return members.put(nickName, member);
+		try {
+			if ( members.containsKey(nickName) != true )
+				return members.put(nickName, member);
+		} catch(NullPointerException e ) {
+			//System.out.println("Ошибка: Неверные значения put(nickName, member) - " + e);
+		  }
+		return null;		
 	}
 	
 	/**
 	  * <p>Проверка существования пользователя в списке.</p>
 	  *
 	  * @param nickName Ник пользователя (ключ в таблице)
-	  * @return true, пользователь есть в таблице, false, если нет
+	  * @return true, пользователь есть в таблице, false, если нет или ошибка
 	  */
 	public boolean isNickName(String nickName) {
-		if ( nickName == null )
-			return false;
-		return members.containsKey(nickName);
+		try {
+			return members.containsKey(nickName);
+		} catch(NullPointerException e ) {
+			//System.out.println("Ошибка: Неверные значения isNickName(nickName) - " + e);
+		  }
+		return false;
 	}
 	
 	/**
@@ -60,10 +71,13 @@ public class MemberList {
 	  * @param member данные для проверки
 	  * @return true, данные есть в таблице, false, если нет
 	  */
-	public boolean isMember(Member member) {
-		if ( member == null )
-			return false;
-		return members.containsValue(member);
+	public boolean isMember(Member member) {		
+		try {
+			return members.containsValue(member);
+		} catch(NullPointerException e ) {
+			//System.out.println("Ошибка: Неверные значения isMember(member) - " + e);
+		  }
+		return false;
 	}
 	
 	/**
@@ -73,15 +87,17 @@ public class MemberList {
 	  * @return null, ошибка удаления, и Member, если удачно
 	  */
 	public Member remove(String nickName) {
-		if ( nickName == null )
-			return null;
-		return members.remove(nickName);
+		try {
+			return members.remove(nickName);
+		} catch(NullPointerException e ) {
+			//System.out.println("Ошибка: Неверные значения remove(nickName) - " + e);
+		  }
+		return null;
 	}
 	
 	/**
 	  * <p>Возвращает массив Member.</p>
 	  *
-	  * @param nickName Ник пользователя (ключ в таблице)
 	  * @return Массив типа Member
 	  */
 	public Member[] getMembers() {
@@ -97,17 +113,33 @@ public class MemberList {
 	}	
 	
 	/**
+	  * <p>Возвращает Member.</p>
+	  *
+	  * @param nickName Ник пользователя (ключ в таблице)
+	  * @return null, ошибка, и Member, если удачно
+	  */
+	public Member getMember(String nickName) {
+		try {
+			return members.get(nickName);
+		} catch(NullPointerException e ) {
+			//System.out.println("Ошибка: Неверные значения getMember(nickName) - " + e);
+		  }
+		return null;
+	}	
+	
+	/**
 	  * <p>Возвращает TimeStamp последнего прочитаного сообщения.</p>
 	  *
 	  * @param nickName Ник пользователя (ключ в таблице)
 	  * @return -1, если ошибка или пользователя не существует, и long TimeStamp, если удачно
 	  */
 	public long getLastMessage(String nickName) {
-		if ( nickName != null ) {
-			Member m = members.get(nickName);
-			if ( m != null )
-				return m.lastMessage;
+		try {
+			return members.get(nickName).lastMessage;
 		}
+		catch(NullPointerException e ) {
+			//System.out.println("Ошибка: Неверные значения getLastMessage(nickName) - " + e);
+		  }
 		return -1L;
 	}
 	
@@ -119,38 +151,34 @@ public class MemberList {
 	  * @return -1, если ошибка или пользователя не существует, и long TimeStamp, если удачно
 	  */
 	public long setLastMessage(String nickName, long timestamp) {
-		if ( nickName != null ) {
+		
+		try {
 			Member m = members.get(nickName);
-			if ( m != null ) {
-				m.lastMessage = timestamp;
-				if ( members.put(nickName, m) != null)
-					return m.lastMessage; 
-			}
-		}
+			m.lastMessage = timestamp;
+			members.put(nickName, m);
+			return m.lastMessage; 
+			
+		} catch(NullPointerException e ) {
+			//System.out.println("Ошибка: Неверные значения setLastMessage(nickName, timestamp) - " + e);
+		  }
 		return -1L;		
 	}
 	
-	public void printConsoleMembers() {
+	public String toString() {
 		Iterator<String> key = members.keySet().iterator();
-
+		StringBuilder str = new StringBuilder();
+		
 		while ( key.hasNext() ) {
 		  String nickName = key.next();
-		  System.out.println("[nickName: "   + members.get(nickName).nickName + "]");
-		  System.out.println("fullName: "    + members.get(nickName).fullName);
-		  System.out.println("email: "       + members.get(nickName).email);
-		  System.out.println("lastMessage: " + members.get(nickName).lastMessage);
+		  str.append("[nickName: "   + members.get(nickName).nickName + "; ");
+		  str.append("fullName: "    + members.get(nickName).fullName + "; ");
+		  str.append("email: "       + members.get(nickName).email    + "; ");
+		  str.append("lastMessage: " + members.get(nickName).lastMessage + "]\n");
 		}
+		
+		return str.toString();
 	}
+		
 	
-	public void printConsoleMembers(Member[] members) {
-		for ( Member m : members ) {
-		  System.out.println("[nickName: "   + m.nickName + "]");
-		  System.out.println("fullName: "    + m.fullName);
-		  System.out.println("email: "       + m.email);
-		  System.out.println("lastMessage: " + m.lastMessage);
-		}
-	}
-	
-	
-	/* public static void main(String[] args) {	}; */
+	public static void main(String[] args) { }; 
 }
