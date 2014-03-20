@@ -4,5 +4,5 @@ public class Member {
 	String nickName;
 	String fullName;
 	String email;
-	long lastMessage;	
+	long lastTimeStamp;	
 }
