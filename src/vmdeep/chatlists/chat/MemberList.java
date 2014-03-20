@@ -44,7 +44,6 @@ public class MemberList {
 		return members.get(nickName);
 	}	
 	
-	
 	/**
 	  * <p>Проверка существования пользователя в списке.</p>
 	  *
