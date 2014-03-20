@@ -130,6 +130,5 @@ public class MemberList {
 		return str.toString();
 	}
 		
-	
 	 /* public static void main(String[] args) { }; */
 }
