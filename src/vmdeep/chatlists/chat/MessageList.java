@@ -36,6 +36,9 @@ public class MessageList {
 		} 
 		return (Message[]) result.toArray();
 	}	
+	public static void main(String[] args) {
+		MessageList mList=new MessageList("Комната1", 100);
+	}
 }
 
 
