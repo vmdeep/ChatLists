@@ -3,14 +3,18 @@ package vmdeep.chatlists.chat;
 public class Message {
 
 	private String text;
-	private long timestamp;
+	private long timestamp = -1L;
 	private Member member;
 
 	public Message(Member member, String text) // ------- Constructor
 	{
 		this.text = text;
 		this.member = member;
-		timestamp = (System.currentTimeMillis() / 1000L);
+	};
+	
+	public Message() // ------- Constructor
+	{
+
 	};
 
 	public Member getMember() {
