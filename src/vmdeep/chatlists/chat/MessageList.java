@@ -37,3 +37,5 @@ public class MessageList {
 		return (Message[]) result.toArray();
 	}	
 }
+
+
