@@ -1,5 +1,7 @@
 package vmdeep.chatlists.chat;
 
+import vmdeep.chatlists.auth.User;
+
 public class Message {
 
 	private String text;
@@ -54,10 +56,7 @@ public class Message {
 	public static void main(String[] args) {
 
 		// TODO Auto-generated method stub*/
-		 Member MyMember = new Member();
-		 MyMember.fullName="Рябов Дмитрий Викторович";
-		 MyMember.email="rdv.pvt@gmail.com";
-		 MyMember.nickName="Димон";
+		 Member MyMember = new Member(new User("Димон","Рябов Дмитрий Викторович","rdv.pvt@gmail.com"));
 		 Message MyMessage=new Message(MyMember,"Hello World!!!");
 		//if(MyMessage.IsNew(System.currentTimeMillis() / 1000L))
 		//{

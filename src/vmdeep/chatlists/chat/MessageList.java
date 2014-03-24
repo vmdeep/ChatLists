@@ -6,13 +6,12 @@ import java.util.List;
 import java.util.concurrent.*;
 
 public class MessageList {
-	private String id;
+
 	private int size;
 
 	private ConcurrentLinkedDeque<Message> messages=new ConcurrentLinkedDeque<Message>();
 	
-	public MessageList(String name, int capacity) {
-		id=name;
+	public MessageList(int capacity) {
 		size=capacity;
 		for(int i=0;i<size;i++){
 			messages.add(null);
@@ -20,8 +19,9 @@ public class MessageList {
 	}
 	
 	public void pushMessage(Message m){
-		messages.add(m);
 		messages.removeFirst();
+		messages.add(m);
+		
 	}
 	public Message[] getMessages(long timestamp){
 		ArrayList<Message> result = new ArrayList<Message>();
@@ -37,7 +37,7 @@ public class MessageList {
 		return (Message[]) result.toArray();
 	}	
 	public static void main(String[] args) {
-		MessageList mList=new MessageList("Комната1", 100);
+		MessageList mList=new MessageList(100);
 	}
 }
 

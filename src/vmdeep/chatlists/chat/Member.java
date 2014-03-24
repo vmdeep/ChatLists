@@ -1,32 +1,41 @@
 package vmdeep.chatlists.chat;
 
+import vmdeep.chatlists.auth.User;
+
 public class Member {
-	 String nickName;
-	 String fullName;
+	 User user;
+	 long lastTimeStamp = 0;	
+	 Boolean adminRole = false;
+		 
+	 public Member(User u) {
+		this.user = u;
+	}
+
+	 public Boolean getAdminRole() {
+		return adminRole;
+	}
+
+	public void setAdminRole(Boolean adminRole) {
+		this.adminRole = adminRole;
+	}
+
 	 public String getNickName() {
-		return nickName;
+		return user.nickName;
 	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
+
 	public String getFullName() {
-		return fullName;
+		return user.fullName;
 	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+
 	public String getEmail() {
-		return email;
+		return user.email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 	public long getLastTimeStamp() {
 		return lastTimeStamp;
 	}
 	public void setLastTimeStamp(long lastTimeStamp) {
 		this.lastTimeStamp = lastTimeStamp;
 	}
-	String email;
-	 long lastTimeStamp;	
+
 }

@@ -121,9 +121,9 @@ public class MemberList {
 		
 		while ( key.hasNext() ) {
 		  String nickName = key.next();
-		  str.append("[nickName: "   + members.get(nickName).nickName + "; ");
-		  str.append("fullName: "    + members.get(nickName).fullName + "; ");
-		  str.append("email: "       + members.get(nickName).email    + "; ");
+		  str.append("[nickName: "   + members.get(nickName).getNickName() + "; ");
+		  str.append("fullName: "    + members.get(nickName).getFullName() + "; ");
+		  str.append("email: "       + members.get(nickName).getEmail()    + "; ");
 		  str.append("lastMessage: " + members.get(nickName).lastTimeStamp + "]\n");
 		}
 		
