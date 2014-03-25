@@ -2,12 +2,11 @@
  * 
  */
 package vmdeep.chatlists.chat;
+import vmdeep.chatlists.auth.User;
+import vmdeep.chatlists.chat.Member;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
-
-import org.junit.Rule;
 import org.junit.Test;
 
 /**
@@ -24,62 +23,66 @@ public class MessageTest {
 	// MyMember.fullName=testFullname;
 	// MyMember.nickName=testNickName;
 
-	/**
-	 * Test method for {@link vmdeep.chatlists.chat.Message#Message()}.
-	 */
 	@Test
 	public void testMessage() {
-		Member MyMember = new Member();
+		User MyUser = new User("а","б","c");
+		Member MyMember = new Member(MyUser);
 		Message MyMessage = new Message(MyMember, testMessage);
-		assertEquals("Текст сообщения одинаковый", testMessage,
+		assertEquals("Текст сообщения разный", testMessage,
 				MyMessage.getMessageText());
 
 	}
 
 	@Test
 	public void testGetMember() {
-		Member MyMember = new Member();
+		User MyUser = new User("а","б","c");		
+		Member MyMember = new Member(MyUser);
 		Message MyMessage = new Message(MyMember, testMessage);
-		assertEquals("Объект member один и тот же", MyMember,
+		assertEquals("Объекты member отличаются", MyMember,
 				MyMessage.getMember());
 	}
 
 	@Test
 	public void testSetMember() {
-		Member MyMember = new Member();
-		Member MyMember2 = new Member();
+		User MyUser = new User("а","б","c");		
+		Member MyMember = new Member(MyUser);
+		Member MyMember2 = new Member(MyUser);
 		Message MyMessage = new Message(MyMember, testMessage);
 		MyMessage.setMember(MyMember2);
-		assertEquals("Объект member один и тот же", MyMember2,
+		assertEquals("Объекты member отличаются", MyMember2,
 				MyMessage.getMember());
 
 	}
 
 	@Test
 	public void testSetMessageText() {
-		Member MyMember = new Member();		
+		User MyUser = new User("а","б","c");		
+		Member MyMember = new Member(MyUser);	
 		Message MyMessage = new Message(MyMember, testMessage);
 		MyMessage.setMessageText("Hello");
-		assertEquals("Текст сообщения одинаковый", "Hello",
+		assertEquals("Текст сообщения разный", "Hello",
 				MyMessage.getMessageText());
 	}
 
 	@Test
 	public void testGetMessageText() {
-		Member MyMember = new Member();		
+		User MyUser = new User("а","б","c");		
+		Member MyMember = new Member(MyUser);	
 		Message MyMessage = new Message(MyMember, testMessage);
 		MyMessage.setMessageText("Hello");
-		assertEquals("Текст сообщения одинаковый", "Hello",
+		assertEquals("Текст сообщения разный", "Hello",
 				MyMessage.getMessageText());
 	}
 
 	@Test
 	public void testGetMessageTimeStamp() {
 		long timestamp;		
-		Member MyMember = new Member();
+		User MyUser = new User("а","б","c");		
+		Member MyMember = new Member(MyUser);
 		timestamp = System.currentTimeMillis() / 1000L;		
 		Message MyMessage = new Message(MyMember, testMessage);
-		assertEquals("Значения времени класса больше или равно", MyMessage.getMessageTimeStamp(), timestamp); //? подкоркой чувствую, что сдесь должно быть AssertFalse на сравнение больше и равно
+		MyMessage.setMessageTimeStamp();
+		assertEquals("Значения времени класса больше или равно", MyMessage.getMessageTimeStamp(), timestamp); //? подкоркой чувствую, что здесь должно быть AssertFalse на сравнение больше и равно
 	}
 
 	/**
@@ -88,7 +91,8 @@ public class MessageTest {
 	@Test
 	public void testIsNew() {
 		long timestamp;	
-		Member MyMember = new Member();
+		User MyUser = new User("а","б","c");		
+		Member MyMember = new Member(MyUser);
 		timestamp = System.currentTimeMillis() / 1000L;		
 		Message MyMessage = new Message(MyMember, testMessage);
 		assertFalse(MyMessage.getMessageTimeStamp() > timestamp);
