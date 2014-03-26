@@ -56,7 +56,8 @@ public class Message {
 	public static void main(String[] args) {
 
 		// TODO Auto-generated method stub*/
-		 Member MyMember = new Member(new User("Димон","Рябов Дмитрий Викторович","rdv.pvt@gmail.com"));
+
+		Member MyMember = new Member(new User("Димон","Рябов Дмитрий Викторович","rdv.pvt@gmail.com"));
 		 Message MyMessage=new Message(MyMember,"Hello World!!!");
 		//if(MyMessage.IsNew(System.currentTimeMillis() / 1000L))
 		//{

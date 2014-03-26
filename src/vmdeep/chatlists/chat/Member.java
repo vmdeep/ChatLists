@@ -34,6 +34,7 @@ public class Member {
 	public long getLastTimeStamp() {
 		return lastTimeStamp;
 	}
+	
 	public void setLastTimeStamp(long lastTimeStamp) {
 		this.lastTimeStamp = lastTimeStamp;
 	}
