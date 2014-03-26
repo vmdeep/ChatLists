@@ -15,10 +15,10 @@ public class User {
 		public boolean banned;
 		public boolean changeUser; //флаг изменения параметров
 		
-		public User(String n, String f,  String e) {
-			fullName = f;
-			email = e;
-			nickName = n;
+		public User(String nick, String fullname,  String mail) {
+			fullName = fullname;
+			email = mail;
+			nickName = nick;
 			
 		}
 		/*Сохранение параметров пользователя */
