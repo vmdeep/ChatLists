@@ -49,7 +49,7 @@ public class Message {
 
 	public boolean IsNew(long timestamp) {
 
-		return this.timestamp < timestamp;
+		return this.timestamp > timestamp;
 	};
 	
 	
