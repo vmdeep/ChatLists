@@ -4,7 +4,7 @@ import vmdeep.chatlists.auth.User;
 
 public class Message {
 
-	private String text;
+	private String text="";
 	private long timestamp = -1L;
 	private Member member;
 
@@ -42,7 +42,7 @@ public class Message {
 	
 	public void setMessageTimeStamp() {
 		
-	timestamp = (System.currentTimeMillis() / 1000L);
+	timestamp = System.currentTimeMillis();
 	
 	};
 	

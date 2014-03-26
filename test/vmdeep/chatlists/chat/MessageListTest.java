@@ -5,33 +5,43 @@ import static org.junit.Assert.*;
 import org.junit.AfterClass;
 import org.junit.Test;
 
+import vmdeep.chatlists.auth.User;
+
 public class MessageListTest {
 
 	@Test
 	public void testMessageList() {
 		//fail("Not yet implemented");
-		MessageList mList=new MessageList("Комната1", 100);
+		MessageList mList=new MessageList(100);
 		assertNotEquals(null,  mList);
 	}
 
-	@Test
-	public void testPushMessage() {
-		MessageList mList=new MessageList("Комната1", 100);
+	private void fillMessages(MessageList mList){
 		for(int i=0;i<10;i++){
-			Member member=new Member();
-			member.setNickName("Bill"+i);
-			member.setFullName("Bill Clinton"+i);
-			member.setEmail("bill"+i+"@gmail.com");
-			member.setLastTimeStamp(System.currentTimeMillis() / 1000L);
+			User u=new User("nick"+i, "fullname"+i, "mail"+i);
+			Member member=new Member(u);
 			
 			Message m=new Message(member,"text"+i);
 			mList.pushMessage(m);
 		}
+		
+	}
+	@Test
+	public void testPushMessage() {
+		MessageList mList=new MessageList(100);
+		fillMessages(mList);
 	}
 
 	@Test
 	public void testGetMessages() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		
 	}
 
+	@Test
+	public void testToString(){
+		MessageList mList=new MessageList(100);
+		fillMessages(mList);
+		System.out.println(mList.toString());
+	}
 }

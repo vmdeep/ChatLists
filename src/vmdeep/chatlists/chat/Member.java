@@ -4,7 +4,7 @@ import vmdeep.chatlists.auth.User;
 
 public class Member {
 	 User user;
-	 long lastTimeStamp = 0;	
+	 long lastTimeStamp = 0;
 	 Boolean adminRole = false;
 		 
 	 public Member(User u) {
