@@ -120,10 +120,10 @@ public class MemberList {
 		
 		while ( key.hasNext() ) {
 		  String nickName = key.next();
-		  str.append("[nickName: "   + members.get(nickName).getNickName() + "; ");
-		  str.append("fullName: "    + members.get(nickName).getFullName() + "; ");
-		  str.append("email: "       + members.get(nickName).getEmail()    + "; ");
-		  str.append("lastMessage: " + members.get(nickName).lastTimeStamp + "]\n");
+		  str.append("[nickName: "     + members.get(nickName).getNickName() + "; ");
+		  str.append("fullName: "      + members.get(nickName).getFullName() + "; ");
+		  str.append("email: "         + members.get(nickName).getEmail()    + "; ");
+		  str.append("lastTimeStamp: " + members.get(nickName).lastTimeStamp + "]\n");
 		}
 		
 		return str.toString();
