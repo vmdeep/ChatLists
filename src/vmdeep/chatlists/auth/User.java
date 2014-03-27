@@ -78,7 +78,7 @@ public class User {
 			StringBuilder pass = new StringBuilder(size);
 		   
 			for ( int i = 0; i < size; i++ ) 
-		      pass.append( table.charAt( rand.nextInt(table.length()) ) );
+				pass.append( table.charAt( rand.nextInt(table.length()) ) );
 		   
 			return pass.toString();
 		}
