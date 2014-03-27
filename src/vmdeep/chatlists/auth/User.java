@@ -1,6 +1,7 @@
 package vmdeep.chatlists.auth;
 
 import java.util.Date;
+import java.util.Random;
 
 public class User {
 	
@@ -70,11 +71,16 @@ public class User {
 			this.password=p;
 		}
 
-		public String genPassword()
+		public String genPassword(int size) /* size - Длина пароля */
 		{
-			String p="пароль";
-			//TODO генерация пароля
-			return p;
+			String table = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+			Random rand = new Random();
+			StringBuilder pass = new StringBuilder(size);
+		   
+			for ( int i = 0; i < size; i++ ) 
+		      pass.append( table.charAt( rand.nextInt(table.length()) ) );
+		   
+			return pass.toString();
 		}
 		
 		
