@@ -4,13 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * <h1>Список пользователей onLine</h1>
- * 
- * @author Корчак Евгений
- * @version 0.2
-*/
-
 
 public class MemberList {
 	private ConcurrentHashMap<String, Member> members; 
@@ -129,5 +122,4 @@ public class MemberList {
 		return str.toString();
 	}
 		
-	 /* public static void main(String[] args) { }; */
 }
