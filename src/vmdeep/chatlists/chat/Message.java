@@ -1,6 +1,7 @@
 package vmdeep.chatlists.chat;
 
 import vmdeep.chatlists.auth.User;
+import vmdeep.chatlists.types.MessageType;
 
 public class Message {
 

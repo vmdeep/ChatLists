@@ -1,4 +1,4 @@
-package vmdeep.chatlists.chat;
+package vmdeep.chatlists.types;
 
 public enum MessageType {
 	SYSTEM, USER;
