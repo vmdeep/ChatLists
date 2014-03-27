@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * <h1>Список пользователей onLine</h1>
  * 
  * @author Корчак Евгений
- * @version 0.1
+ * @version 0.2
 */
 
 
@@ -26,12 +26,11 @@ public class MemberList {
 	/**
 	  * <p>Добавить в список.</p>
 	  *
-	  * @param nickName Ник пользователя (ключ в таблице)
 	  * @param member Данные о пользователе
 	  */
-	public void put(String nickName, Member member) {
-		if ( members.containsKey(nickName) != true )
-			members.put(nickName, member);
+	public void put(Member member) {
+		if ( members.containsKey(member.getNickName()) != true )
+			members.put(member.getNickName(), member);
 	}
 	
 	/**
