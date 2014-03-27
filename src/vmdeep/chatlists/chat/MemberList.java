@@ -1,8 +1,12 @@
 package vmdeep.chatlists.chat;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
+
+import vmdeep.chatlists.auth.User;
 
 
 public class MemberList {
@@ -79,7 +83,7 @@ public class MemberList {
 		  result.add(members.get(nickName));
 		}
 		
-		return (Member[]) result.toArray(new Member[result.size()]);
+		return (Member[]) result.toArray(new Member[0]);
 	}	
 	
 	/**
@@ -121,5 +125,5 @@ public class MemberList {
 		
 		return str.toString();
 	}
-		
+	
 }
