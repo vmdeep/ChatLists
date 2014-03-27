@@ -3,24 +3,28 @@ package vmdeep.chatlists.chat;
 import vmdeep.chatlists.auth.User;
 
 public class Room {
-	private MemberList Memebers;
-	private MessageList Messages;
-	RoomConfiguration Config;
-	
-	public Room(RoomConfiguration config) {
-		Memebers  = new MemberList();
-		Messages = new MessageList(config.MESSAGE_LIST_SIZE);
+	private MemberList members;
+	private MessageList messages;
+	RoomConfiguration config;
+
+	public Room() {
+		members = new MemberList();
+		messages = new MessageList(config.MESSAGE_LIST_SIZE);
 	}
-	
+//Создание комнаты с администратором и при необходимости с доступом по паролю
+	public Room(Member member, String password) {
+		config = new RoomConfiguration(member, password);
+		members = new MemberList();
+		messages = new MessageList(config.MESSAGE_LIST_SIZE);
+	}
+
 	public Boolean login(User u) {
-		return null;	
+		return null;
 	}
-	
+
 	public Boolean logout(User u) {
 		return null;
-		
+
 	}
-	
-	
-	
+
 }
