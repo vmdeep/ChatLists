@@ -7,7 +7,7 @@ public class Room {
 	private MessageList messages;
 	RoomConfiguration config;
 
-	public Room() {
+	public Room(RoomConfiguration config) {
 		members = new MemberList();
 		messages = new MessageList(config.MESSAGE_LIST_SIZE);
 	}
