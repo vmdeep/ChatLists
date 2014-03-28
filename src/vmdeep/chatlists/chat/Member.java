@@ -20,7 +20,7 @@ public class Member {
 	}
 
 	 public String getNickName() {
-		return user.nickName;
+		return user.nickname;
 	}
 
 	public String getFullName() {

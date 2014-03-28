@@ -7,7 +7,7 @@ public class User {
 	
 		public final String fullName;
 		public final String email;
-		public final String nickName;
+		public final String nickname;
 		public int sex;		
 		public Date birthDate; 
 		public boolean showDate; //Показывать ль дату рождения в профиле
@@ -19,7 +19,7 @@ public class User {
 		public User(String nick, String fullname,  String mail) {
 			fullName = fullname;
 			email = mail;
-			nickName = nick;
+			nickname = nick;
 			
 		}
 		/*Сохранение параметров пользователя */
