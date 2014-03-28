@@ -6,9 +6,11 @@ public class Member {
 	 User user;
 	 long lastTimeStamp = 0;
 	 Boolean adminRole = false;
+	 String nickname;
 		 
 	 public Member(User u) {
 		this.user = u;
+		nickname=u.nickname;
 	}
 
 	 public Boolean getAdminRole() {
@@ -19,8 +21,12 @@ public class Member {
 		this.adminRole = adminRole;
 	}
 
-	 public String getNickName() {
-		return user.nickname;
+	 public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public String getFullName() {

@@ -42,7 +42,7 @@ public class MessageList {
 		StringBuilder mss=new StringBuilder();
 		for(Message m: getMessages(0))
 			mss.append("["+new SimpleDateFormat("MM.dd.yyyy HH:mm:ss").format(new Date(m.getMessageTimeStamp()))+"]"
-						+m.getMember().getNickName()+": "+m.getMessageText()+"\r\n");
+						+m.getMember().getNickname()+": "+m.getMessageText()+"\r\n");
 		return mss.toString();
 	}
 	public static void main(String[] args) {

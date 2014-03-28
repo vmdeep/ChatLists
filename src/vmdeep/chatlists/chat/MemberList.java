@@ -26,8 +26,8 @@ public class MemberList {
 	  * @param member Данные о пользователе
 	  */
 	public void put(Member member) {
-		if ( members.containsKey(member.getNickName()) != true )
-			members.put(member.getNickName(), member);
+		if ( members.containsKey(member.getNickname()) != true )
+			members.put(member.getNickname(), member);
 	}
 	
 	/**
@@ -109,7 +109,7 @@ public class MemberList {
 		
 		while ( key.hasNext() ) {
 		  String nickName = key.next();
-		  str.append("[nickName: "     + members.get(nickName).getNickName() + "; ");
+		  str.append("[nickName: "     + members.get(nickName).getNickname() + "; ");
 		  str.append("fullName: "      + members.get(nickName).getFullName() + "; ");
 		  str.append("email: "         + members.get(nickName).getEmail()    + "; ");
 		  str.append("lastTimeStamp: " + members.get(nickName).lastTimeStamp + "]\n");
