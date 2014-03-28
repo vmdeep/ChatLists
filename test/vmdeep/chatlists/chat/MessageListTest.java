@@ -6,6 +6,8 @@ import org.junit.AfterClass;
 import org.junit.Test;
 
 import vmdeep.chatlists.auth.User;
+import vmdeep.chatlists.message.Message;
+import vmdeep.chatlists.message.UserMessage;
 
 public class MessageListTest {
 
@@ -21,7 +23,7 @@ public class MessageListTest {
 			User u=new User("nick"+i, "fullname"+i, "mail"+i);
 			Member member=new Member(u);
 			
-			Message m=new Message(member,"text"+i);
+			Message m=new UserMessage(member,"text"+i);
 			mList.pushMessage(m);
 		}
 		

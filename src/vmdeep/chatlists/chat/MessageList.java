@@ -6,6 +6,11 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
+import vmdeep.chatlists.message.EmptyMessage;
+import vmdeep.chatlists.message.Message;
+import vmdeep.chatlists.message.SystemMessage;
+import vmdeep.chatlists.message.UserMessage;
+
 public class MessageList {
 
 	private int size;
@@ -15,13 +20,12 @@ public class MessageList {
 	public MessageList(int capacity) {
 		size=capacity;
 		for(int i=0;i<size;i++){
-			messages.add(new Message());
+			messages.add(new EmptyMessage());
 		}
 	}
 	
 	public void pushMessage(Message m){
 		messages.removeFirst();
-		m.setMessageTimeStamp();
 		messages.add(m);
 		
 	}
@@ -30,19 +34,27 @@ public class MessageList {
 		Iterator<Message> iter = messages.descendingIterator();
 		while(iter.hasNext()){
 			Message m = iter.next();
-			if(m.getMessageTimeStamp() > timestamp){
-				result.add(m);
-			}else{
-				break;
-			}
+			if(m instanceof UserMessage)
+				if(m.getMessageTimestamp() > timestamp){
+					result.add(m);
+				}else{
+					break;
+				}
 		} 
 		return (Message[]) result.toArray(new Message[0]);
 	}
 	public String toString() {
 		StringBuilder mss=new StringBuilder();
-		for(Message m: getMessages(0))
-			mss.append("["+new SimpleDateFormat("MM.dd.yyyy HH:mm:ss").format(new Date(m.getMessageTimeStamp()))+"]"
-						+m.getMember().getNickname()+": "+m.getMessageText()+"\r\n");
+		for(Message m: getMessages(0)){
+			if(m instanceof UserMessage)
+				mss.append(((UserMessage)m).toString());
+			else if(m instanceof SystemMessage)
+				mss.append(((SystemMessage)m).toString());
+			else if(m instanceof EmptyMessage)
+				mss.append(((EmptyMessage)m).toString());
+			else
+				mss.append("Неподдерживаемый подтип Message: "+m.toString());
+		}
 		return mss.toString();
 	}
 	public static void main(String[] args) {

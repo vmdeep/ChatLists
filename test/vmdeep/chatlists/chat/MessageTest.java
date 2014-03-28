@@ -4,9 +4,11 @@
 package vmdeep.chatlists.chat;
 import vmdeep.chatlists.auth.User;
 import vmdeep.chatlists.chat.Member;
-
+import vmdeep.chatlists.message.Message;
+import vmdeep.chatlists.message.UserMessage;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+
 import org.junit.Test;
 
 /**
@@ -27,7 +29,7 @@ public class MessageTest {
 	public void testMessage() {
 		User MyUser = new User("а","б","c");
 		Member MyMember = new Member(MyUser);
-		Message MyMessage = new Message(MyMember, testMessage);
+		Message MyMessage = new UserMessage(MyMember, testMessage);
 		assertEquals("Текст сообщения разный", testMessage,
 				MyMessage.getMessageText());
 
@@ -37,7 +39,7 @@ public class MessageTest {
 	public void testGetMember() {
 		User MyUser = new User("а","б","c");		
 		Member MyMember = new Member(MyUser);
-		Message MyMessage = new Message(MyMember, testMessage);
+		UserMessage MyMessage = new UserMessage(MyMember, testMessage);
 		assertEquals("Объекты member отличаются", MyMember,
 				MyMessage.getMember());
 	}
@@ -47,7 +49,7 @@ public class MessageTest {
 		User MyUser = new User("а","б","c");		
 		Member MyMember = new Member(MyUser);
 		Member MyMember2 = new Member(MyUser);
-		Message MyMessage = new Message(MyMember, testMessage);
+		UserMessage MyMessage = new UserMessage(MyMember, testMessage);
 		MyMessage.setMember(MyMember2);
 		assertEquals("Объекты member отличаются", MyMember2,
 				MyMessage.getMember());
@@ -58,7 +60,7 @@ public class MessageTest {
 	public void testSetMessageText() {
 		User MyUser = new User("а","б","c");		
 		Member MyMember = new Member(MyUser);	
-		Message MyMessage = new Message(MyMember, testMessage);
+		UserMessage MyMessage = new UserMessage(MyMember, testMessage);
 		MyMessage.setMessageText("Hello");
 		assertEquals("Текст сообщения разный", "Hello",
 				MyMessage.getMessageText());
@@ -68,7 +70,7 @@ public class MessageTest {
 	public void testGetMessageText() {
 		User MyUser = new User("а","б","c");		
 		Member MyMember = new Member(MyUser);	
-		Message MyMessage = new Message(MyMember, testMessage);
+		UserMessage MyMessage = new UserMessage(MyMember, testMessage);
 		MyMessage.setMessageText("Hello");
 		assertEquals("Текст сообщения разный", "Hello",
 				MyMessage.getMessageText());
@@ -79,14 +81,14 @@ public class MessageTest {
 		long timestamp;		
 		User MyUser = new User("а","б","c");		
 		Member MyMember = new Member(MyUser);
-		timestamp = System.currentTimeMillis() / 1000L;		
-		Message MyMessage = new Message(MyMember, testMessage);
-		MyMessage.setMessageTimeStamp();
-		assertEquals("Значения времени класса больше или равно", MyMessage.getMessageTimeStamp(), timestamp); //? подкоркой чувствую, что здесь должно быть AssertFalse на сравнение больше и равно
+		timestamp = System.currentTimeMillis();		
+		Message MyMessage = new UserMessage(MyMember, testMessage);
+		MyMessage.setMessageTimestamp(System.currentTimeMillis());
+		assertEquals("Значения времени класса больше или равно", MyMessage.getMessageTimestamp(), timestamp); //? подкоркой чувствую, что здесь должно быть AssertFalse на сравнение больше и равно
 	}
 
 	/**
-	 * Test method for {@link vmdeep.chatlists.chat.Message#IsNew(long)}.
+	 * Test method for {@link vmdeep.chatlists.message.Message#IsNew(long)}.
 	 */
 	@Test
 	public void testIsNew() {
@@ -94,8 +96,8 @@ public class MessageTest {
 		User MyUser = new User("а","б","c");		
 		Member MyMember = new Member(MyUser);
 		timestamp = System.currentTimeMillis() / 1000L;		
-		Message MyMessage = new Message(MyMember, testMessage);
-		assertFalse(MyMessage.getMessageTimeStamp() > timestamp);
+		Message MyMessage = new UserMessage(MyMember, testMessage);
+		assertFalse(MyMessage.getMessageTimestamp() > timestamp);
 	}
 
 }
