@@ -11,6 +11,7 @@ public class Room {
 		members = new MemberList();
 		messages = new MessageList(config.MESSAGE_LIST_SIZE);
 	}
+	
 //Создание комнаты с администратором и при необходимости с доступом по паролю
 	public Room(Member member, String password) {
 		config = new RoomConfiguration(member, password);
