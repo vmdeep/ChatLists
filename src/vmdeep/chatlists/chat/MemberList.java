@@ -75,15 +75,7 @@ public class MemberList {
 	  * @return Массив типа Member
 	  */
 	public Member[] toArray() {
-		ArrayList<Member> result = new ArrayList<Member>();
-		Iterator<String> key = members.keySet().iterator();
-
-		while ( key.hasNext() ) {
-		  String nickName = key.next();
-		  result.add(members.get(nickName));
-		}
-		
-		return (Member[]) result.toArray(new Member[0]);
+		return (Member[]) members.values().toArray(new Member[0]);
 	}	
 	
 	/**
