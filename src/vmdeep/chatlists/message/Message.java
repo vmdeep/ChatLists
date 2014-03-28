@@ -6,8 +6,8 @@ import vmdeep.chatlists.types.MessageType;
 
 public abstract class Message {
 
-	private String text="";
-	private long timestamp;
+	protected String text="";
+	protected long timestamp;
 
 	public void setMessageText(String text) {
 		this.text = text;

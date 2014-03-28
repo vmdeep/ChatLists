@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class EmptyMessage extends Message {
 	public EmptyMessage(){
-		super.setMessageTimestamp(-1);
+		timestamp=-1;
 	}
 	public String toString(){
-		return "EmptyMessage: ["+new SimpleDateFormat("MM.dd.yyyy HH:mm:ss").format(new Date(super.getMessageTimestamp()))+"]"+super.getMessageText();
+		return "EmptyMessage: ["+new SimpleDateFormat("MM.dd.yyyy HH:mm:ss").format(new Date(timestamp))+"]"+text;
 	}
 }

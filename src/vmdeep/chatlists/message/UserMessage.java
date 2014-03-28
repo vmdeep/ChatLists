@@ -10,7 +10,7 @@ public class UserMessage extends Message {
 	
 	public UserMessage(Member member, String text) // ------- Constructor
 	{
-		super.setMessageText(text);
+		this.text=text;
 		this.member = member;
 	}
 	public Member getMember() {
@@ -22,8 +22,8 @@ public class UserMessage extends Message {
 	}
 	
 	public String toString(){
-		return "UserMessage: ["+new SimpleDateFormat("MM.dd.yyyy HH:mm:ss").format(new Date(super.getMessageTimestamp()))+"]"
-				+member.getNickname()+": "+super.getMessageText();
+		return "UserMessage: ["+new SimpleDateFormat("MM.dd.yyyy HH:mm:ss").format(new Date(getMessageTimestamp()))+"]"
+				+member.getNickname()+": "+getMessageText();
 	}
 	
 	public static void main(String[] args) {
