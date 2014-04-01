@@ -25,6 +25,11 @@ public abstract class Message {
 	public void setMessageTimestamp(long timestamp) {
 		this.timestamp = timestamp;
 	}
+	
+	private void putMessageTimestamp() {
+		this.timestamp = System.currentTimeMillis();
+
+	}
 
 	public boolean IsNew(long timestamp) {
 

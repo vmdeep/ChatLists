@@ -7,7 +7,7 @@ public class SystemMessage extends Message {
 	private MessageAction action;
 
 	public SystemMessage(){
-		timestamp=System.currentTimeMillis();
+	
 	}
 	
 	public String toString(){
