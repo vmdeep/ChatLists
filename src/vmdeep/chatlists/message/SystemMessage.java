@@ -10,6 +10,9 @@ public class SystemMessage extends Message {
 	
 	}
 	
+	public void setAction(MessageAction ac){
+		this.action = ac;
+	}
 	public String toString(){
 		return "SystemMessage: ["+new SimpleDateFormat("MM.dd.yyyy HH:mm:ss").format(new Date(timestamp))+"]"+action+":"+getMessageText();
 	}

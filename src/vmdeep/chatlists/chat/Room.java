@@ -1,6 +1,8 @@
 package vmdeep.chatlists.chat;
 
 import vmdeep.chatlists.auth.User;
+import vmdeep.chatlists.message.MessageAction;
+import vmdeep.chatlists.message.SystemMessage;
 
 public class Room {
 	private MemberList members;
@@ -19,11 +21,16 @@ public class Room {
 		messages = new MessageList(config.MESSAGE_LIST_SIZE);
 	}
 
-	public Boolean login(User u) {
-		return null;
+	public Boolean login(Member m) {
+		members.put(m);
+		SystemMessage sys = new SystemMessage();
+		sys.setMessageText("Болтун "+m.getNickname()+" вошел в чат");
+		sys.setAction(MessageAction.LoginMember);
+		messages.pushMessage(sys);
+		return true;
 	}
 
-	public Boolean logout(User u) {
+	public Boolean logout(Member m) {
 		return null;
 
 	}

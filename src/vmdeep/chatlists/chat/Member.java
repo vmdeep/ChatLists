@@ -22,6 +22,7 @@ public class Member {
 	}
 
 	 public String getNickname() {
+		if(nickname == null) return user.nickname; 
 		return nickname;
 	}
 

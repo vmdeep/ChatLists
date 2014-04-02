@@ -26,7 +26,7 @@ public abstract class Message {
 		this.timestamp = timestamp;
 	}
 	
-	private void putMessageTimestamp() {
+	public void putMessageTimestamp() {
 		this.timestamp = System.currentTimeMillis();
 
 	}

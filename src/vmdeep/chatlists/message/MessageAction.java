@@ -1,5 +1,5 @@
 package vmdeep.chatlists.message;
 
 public enum MessageAction {
-	AddUser, RemoveUser
+	AddUser, RemoveUser, LoginMember, LogoutMember
 }

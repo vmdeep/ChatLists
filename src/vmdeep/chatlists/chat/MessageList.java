@@ -12,6 +12,8 @@ import vmdeep.chatlists.message.SystemMessage;
 import vmdeep.chatlists.message.UserMessage;
 
 public class MessageList {
+	
+	Object sync = new Object();
 
 	private int size;
 
@@ -26,7 +28,11 @@ public class MessageList {
 	
 	public void pushMessage(Message m){
 		messages.removeFirst();
-		messages.add(m);
+		synchronized (sync) {
+			messages.add(m);
+			m.putMessageTimestamp();
+		}
+		
 		
 	}
 	public Message[] getMessages(long timestamp){
