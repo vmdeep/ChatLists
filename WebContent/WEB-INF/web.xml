@@ -11,11 +11,13 @@
 		<servlet-name>Gate</servlet-name>
 		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
 		<init-param>
-			<param-name></param-name>
-			<param-value></param-value>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>vmdeep.chatlists.rest</param-value>
 		</init-param>
-		</servlet>
-		<servlet-mapping>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
 		<servlet-name>Gate</servlet-name>
 		<url-pattern>/Gate/*</url-pattern>
 	</servlet-mapping>
