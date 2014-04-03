@@ -3,9 +3,9 @@ package vmdeep.chatlists.chat;
 public class RoomConfiguration {
 	public int MESSAGE_LIST_SIZE = 100;
 	public String ROOM_NAME = "Default Name";
-	public Member owner; // Как на счет добавить создателя комнаты, с правами
+	private Member owner; // Как на счет добавить создателя комнаты, с правами
 							// админа?
-	public String password = null; // А также пароль для доступа в комнату?
+	private String password = null; // А также пароль для доступа в комнату?
 
 	public RoomConfiguration (Member member, String password)
 	{

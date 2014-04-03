@@ -3,10 +3,10 @@ package vmdeep.chatlists.chat;
 import vmdeep.chatlists.auth.User;
 
 public class Member {
-	 User user;
-	 long lastTimeStamp = 0;
-	 Boolean adminRole = false;
-	 String nickname;
+	 private User user;
+	 private long lastTimeStamp = 0;
+	 private Boolean adminRole = false;
+	 private String nickname;
 		 
 	 public Member(User u) {
 		this.user = u;

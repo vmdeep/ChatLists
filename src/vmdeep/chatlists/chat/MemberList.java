@@ -87,7 +87,7 @@ public class MemberList {
 	public long getLastTimeStamp(String nickName) {
 		Member m = members.get(nickName);
 		if ( m != null )
-			return m.lastTimeStamp;
+			return m.getLastTimeStamp();
 		return -1L;
 	}
 	
@@ -100,7 +100,7 @@ public class MemberList {
 	public void setLastTimeStamp(String nickName, long timestamp) {
 		Member m = members.get(nickName);
 		if ( m != null ) 	
-		  m.lastTimeStamp = timestamp;
+		  m.setLastTimeStamp(timestamp);
 	}
 	
 	public String toString() {
@@ -112,7 +112,7 @@ public class MemberList {
 		  str.append("[nickName: "     + members.get(nickName).getNickname() + "; ");
 		  str.append("fullName: "      + members.get(nickName).getFullName() + "; ");
 		  str.append("email: "         + members.get(nickName).getEmail()    + "; ");
-		  str.append("lastTimeStamp: " + members.get(nickName).lastTimeStamp + "]\n");
+		  str.append("lastTimeStamp: " + members.get(nickName).getLastTimeStamp() + "]\n");
 		}
 		
 		return str.toString();

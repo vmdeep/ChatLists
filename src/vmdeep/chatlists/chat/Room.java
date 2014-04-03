@@ -7,7 +7,7 @@ import vmdeep.chatlists.message.SystemMessage;
 public class Room {
 	private MemberList members;
 	private MessageList messages;
-	RoomConfiguration config;
+	private RoomConfiguration config;
 
 	public Room(RoomConfiguration config) {
 		members = new MemberList();
@@ -31,7 +31,8 @@ public class Room {
 	}
 
 	public Boolean logout(Member m) {
-		return null;
+		members.remove(m.getNickname());
+		return true;
 
 	}
 
