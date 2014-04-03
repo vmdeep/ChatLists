@@ -1,12 +1,9 @@
 package vmdeep.chatlists.chat;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
-import vmdeep.chatlists.auth.User;
+import vmdeep.chatlists.exceptions.MemberExistException;
 
 
 public class MemberList {
@@ -24,10 +21,13 @@ public class MemberList {
 	  * <p>Добавить в список.</p>
 	  *
 	  * @param member Данные о пользователе
+	 * @throws MemberExistException 
 	  */
-	public void put(Member member) {
-		if ( members.containsKey(member.getNickname()) != true )
+	public void put(Member member) throws MemberExistException {
+		if ( !members.containsKey(member.getNickname()))
 			members.put(member.getNickname(), member);
+		else
+			throw new MemberExistException();
 	}
 	
 	/**

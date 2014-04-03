@@ -1,8 +1,7 @@
 package vmdeep.chatlists.chat;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotEquals;
 
-import org.junit.AfterClass;
 import org.junit.Test;
 
 import vmdeep.chatlists.auth.User;

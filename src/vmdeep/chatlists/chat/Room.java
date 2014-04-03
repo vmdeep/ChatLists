@@ -1,6 +1,6 @@
 package vmdeep.chatlists.chat;
 
-import vmdeep.chatlists.auth.User;
+import vmdeep.chatlists.exceptions.MemberExistException;
 import vmdeep.chatlists.message.MessageAction;
 import vmdeep.chatlists.message.SystemMessage;
 
@@ -21,7 +21,7 @@ public class Room {
 		messages = new MessageList(config.MESSAGE_LIST_SIZE);
 	}
 
-	public Boolean login(Member m) {
+	public Boolean login(Member m) throws MemberExistException {
 		members.put(m);
 		SystemMessage sys = new SystemMessage();
 		sys.setMessageText("Болтун "+m.getNickname()+" вошел в чат");

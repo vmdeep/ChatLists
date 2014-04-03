@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import vmdeep.chatlists.auth.User;
+import vmdeep.chatlists.exceptions.MemberExistException;
 
 public class MemberListTest {
 
@@ -22,52 +23,92 @@ public class MemberListTest {
 	
 	@Test
 	public void testPutAndGet() {
-		mList.put(m);
+		try {
+			mList.put(m);
+		} catch (MemberExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertNotNull(mList.get("evgen"));
 	}
 		
 			
 	@Test	
 	public void testIsNickName() {
-		mList.put(m);
+		try {
+			mList.put(m);
+		} catch (MemberExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(mList.isNickName("evgen"));	
 	}
 		
 	@Test
 	public void testIsMember() {		
-		mList.put(m);
+		try {
+			mList.put(m);
+		} catch (MemberExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(mList.isMember(m));		
 	}
 		
 	@Test
 	public void testRemove() {
-		mList.put(m);
+		try {
+			mList.put(m);
+		} catch (MemberExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		mList.remove("evgen");
-		assertTrue(!mList.isNickName("evgen"));			
+		assertTrue(!mList.isNickName("evgen"));
 	}
 		
 	@Test
 	public void TestGetLastTimeStamp() {
-		mList.put(m);
+		try {
+			mList.put(m);
+		} catch (MemberExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(mList.getLastTimeStamp("evgen") >= 0);
 	}
 	
 	@Test
 	public void testSetLastTimeStamp() {
-		mList.put(m);
+		try {
+			mList.put(m);
+		} catch (MemberExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		mList.setLastTimeStamp("evgen", 1000);
 		assertTrue(mList.getLastTimeStamp("evgen") == 1000);
 	}
 		
 	@Test
 	public void testToString() {
-		mList.put(m);
+		try {
+			mList.put(m);
+		} catch (MemberExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(mList.toString().length() > 0);	
 	}
 	
 	@Test
 	public void testToArray() {
-		mList.put(m);
+		try {
+			mList.put(m);
+		} catch (MemberExistException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue(mList.toArray().length == 1);	
 	}
 	
