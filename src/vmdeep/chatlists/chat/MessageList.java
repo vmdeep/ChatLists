@@ -33,20 +33,21 @@ public class MessageList {
 		
 		
 	}
+	
 	public Message[] getMessages(long timestamp){
 		ArrayList<Message> result = new ArrayList<Message>();
 		Iterator<Message> iter = messages.descendingIterator();
 		while(iter.hasNext()){
 			Message m = iter.next();
-			if(m instanceof UserMessage)
 				if(m.getMessageTimestamp() > timestamp){
 					result.add(m);
 				}else{
 					break;
-				}
-		} 
+				} 
+		}		
 		return (Message[]) result.toArray(new Message[0]);
 	}
+	
 	public String toString() {
 		StringBuilder mss=new StringBuilder();
 		for(Message m: getMessages(0)){
@@ -61,8 +62,10 @@ public class MessageList {
 		}
 		return mss.toString();
 	}
+	
 	public static void main(String[] args) {
-		MessageList mList=new MessageList(100);
+		//MessageList mList=new MessageList(100);
+		//TODO Все проверки в тесты!!!
 	}
 }
 
