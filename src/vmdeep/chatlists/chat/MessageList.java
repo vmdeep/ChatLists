@@ -50,16 +50,8 @@ public class MessageList {
 	
 	public String toString() {
 		StringBuilder mss=new StringBuilder();
-		for(Message m: getMessages(0)){
-			if(m instanceof UserMessage)
-				mss.append(((UserMessage)m).toString());
-			else if(m instanceof SystemMessage)
-				mss.append(((SystemMessage)m).toString());
-			else if(m instanceof EmptyMessage)
-				mss.append(((EmptyMessage)m).toString());
-			else
-				mss.append("Неподдерживаемый подтип Message: "+m.toString());
-		}
+		for(Message m: getMessages(0))
+			mss.append(m.toString());
 		return mss.toString();
 	}
 	
